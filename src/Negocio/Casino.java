@@ -62,9 +62,10 @@ public class Casino {
                 Empleado nuevoEmpleado = new Empleado(nombre, cedula);
                 listaEmpleados.add(nuevoEmpleado);
                 listaPersonas.add(nuevoEmpleado);
-                return "Registro exitoso";
+                return "Registro exitoso prueba";
             }
     }
+    
     
 
 }
