@@ -16,8 +16,10 @@ public class Casino {
     private ArrayList<Jugador> listaJugadores;
     private ArrayList<Empleado> listaEmpleados;
     private ArrayList<Persona> listaPersonas;
+    private Jugada myJugada;
 
     public Casino(int monto) {
+
         this.monto = monto;
         this.listaJugadores = new ArrayList<>();
         this.listaEmpleados = new ArrayList<>();
@@ -37,37 +39,31 @@ public class Casino {
     public String registrarJugador(String nombre, String cedula, String telefono) {
 
         if (validarCedula(cedula)) {
-           return "Ya existe ese número de cédula";
+            return "Ya existe ese número de cédula";
         }
         Jugador nuevoJugador = new Jugador(telefono, nombre, cedula);
         listaJugadores.add(nuevoJugador);
         listaPersonas.add(nuevoJugador);
-        
-         return "Registro exitoso";
+
+        return "Registro exitoso";
 
         /*for (Persona persona : listaPersonas) {
             if (persona instanceof Jugador) {
                 Jugador jugador = (Jugador) persona;
             }
         }*/
-        
     }
-    
-    public String registrarEmpleado(String nombre, String cedula){
-        
-            if(validarCedula(cedula)){
-               return "Ya existe este número de cédula";
-            }
-            else{ 
-                Empleado nuevoEmpleado = new Empleado(nombre, cedula);
-                listaEmpleados.add(nuevoEmpleado);
-                listaPersonas.add(nuevoEmpleado);
-                return "Registro exitoso";
-            }
+
+    public String registrarEmpleado(String nombre, String cedula) {
+
+        if (validarCedula(cedula)) {
+            return "Ya existe este número de cédula";
+        } else {
+            Empleado nuevoEmpleado = new Empleado(nombre, cedula);
+            listaEmpleados.add(nuevoEmpleado);
+            listaPersonas.add(nuevoEmpleado);
+            return "Registro exitoso";
+        }
     }
-    
-    
-    
-    
 
 }

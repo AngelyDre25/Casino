@@ -25,23 +25,7 @@ public class Jugada {
         this.valorApuesta = valorApuesta;
     }
     
-    public void generarCartasIniciales(Baraja baraja){
-       Random random = new Random();
-       ArrayList<Carta> cartasDisponibles = baraja.getMyCartas();
-       
-       int carta1 = random.nextInt(cartasDisponibles.size());
-       int carta2 = random.nextInt(cartasDisponibles.size());
-       
-       if(carta1 == carta2){
-           carta2 = random.nextInt(cartasDisponibles.size());
-       } 
-       myCartas[0] = cartasDisponibles.get(carta1);
-       myCartas[1] = cartasDisponibles.get(carta2);
-    }
     
-    public Carta[] getCartas(){
-        return myCartas;
-    }
     
     
 }
