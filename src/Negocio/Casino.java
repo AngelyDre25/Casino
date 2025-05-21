@@ -4,6 +4,7 @@
  */
 package Negocio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +17,8 @@ public class Casino {
     private ArrayList<Jugador> listaJugadores;
     private ArrayList<Empleado> listaEmpleados;
     private ArrayList<Persona> listaPersonas;
-    private Jugada myJugada;
+    private Partida myPartida;
+    int partidaActual;
 
     public Casino(int monto) {
 
@@ -24,6 +26,21 @@ public class Casino {
         this.listaJugadores = new ArrayList<>();
         this.listaEmpleados = new ArrayList<>();
         this.listaPersonas = new ArrayList<>();
+        this.partidaActual = 1;
+    }
+
+    public String crearPartido(String cedula1, String cedula2, int apuesta1, int apuesta2) {
+        if (this.listaEmpleados.isEmpty()) {
+            return "Debe registrar mínimo un crupier";
+        } else {
+            String hoy = LocalDate.now().toString();
+            Persona persona1 = this.buscarPersonaPorCedula(cedula1);
+            Persona persona2 = this.buscarPersonaPorCedula(cedula2);
+            this.myPartida = new Partida(this.partidaActual, hoy);
+            this.myPartida.generarCartasIniciales(persona1, persona2, apuesta1, apuesta2);
+            partidaActual++;
+            return "";
+        }
     }
 
     public boolean validarCedula(String cedula) {

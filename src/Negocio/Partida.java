@@ -4,6 +4,7 @@
  */
 package Negocio;
 
+import Negocio.Carta;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,28 +22,25 @@ public class Partida {
     private int valorCancelado;
     private Baraja myBaraja;
 
-    public Partida(Jugada[] myJugada, int numPartida, String fecha, String ganador, int puntaje, int valorCancelado, Baraja baraja) {
+    public Partida(int numPartida, String fecha) {
         this.myJugada = new Jugada[2];
         this.numPartida = numPartida;
         this.fecha = fecha;
-        this.ganador = ganador;
-        this.puntaje = puntaje;
-        this.valorCancelado = valorCancelado;
-        this.myBaraja = baraja;
+        this.myBaraja = new Baraja();
     }
+    
+    public void generarCartasIniciales(Jugador jugador1, Jugador jugador2, int valorApuesta1, int valorApuesta2) {
 
-    public void generarCartasIniciales(Baraja baraja) {
-        Random random = new Random();
-        ArrayList<Carta> cartasDisponibles = baraja.getMyCartas();
-
-        int carta1 = random.nextInt(cartasDisponibles.size());
-        int carta2 = random.nextInt(cartasDisponibles.size());
-
-        if (carta1 == carta2) {
-            carta2 = random.nextInt(cartasDisponibles.size());
-        }
-        myJugada[0] = new Jugada(null, new Carta[]{cartasDisponibles.get(carta1)}, 0, "", 0);
-        myJugada[1] = new Jugada(null, new Carta[]{cartasDisponibles.get(carta2)}, 0, "", 0);
+        Carta carta1 = this.myBaraja.getCarta();
+        Carta carta2 = this.myBaraja.getCarta();
+        Carta cartas1[] = {carta1, carta2};
+        
+        Carta carta3 = this.myBaraja.getCarta();
+        Carta carta4 = this.myBaraja.getCarta();
+        Carta cartas2[] = {carta3, carta4};
+        
+        myJugada[0] = new Jugada(jugador1, cartas1, valorApuesta1);
+        myJugada[1] = new Jugada(jugador2, cartas2, valorApuesta2);
 
     }
 

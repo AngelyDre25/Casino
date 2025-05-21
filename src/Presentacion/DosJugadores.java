@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Presentacion;
+
 import Negocio.Casino;
 
 /**
@@ -12,7 +13,8 @@ import Negocio.Casino;
 public class DosJugadores extends javax.swing.JFrame {
 
     private FormPrincipal myPrincipal;
-      private Casino myCasino;
+    private Casino myCasino;
+
     /**
      * Creates new form DosJugadores
      */
@@ -25,7 +27,6 @@ public class DosJugadores extends javax.swing.JFrame {
     public FormPrincipal getMyPrincipal() {
         return myPrincipal;
     }
- 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -320,9 +321,9 @@ public class DosJugadores extends javax.swing.JFrame {
         String nombre = txtNomJ2.getText();
         String cedula = txtCedJ2.getText();
         String telefono = txtTelJ2.getText();
-        
-         Ventana.imp(myCasino.registrarJugador(nombre, cedula, telefono), "Sistema");
-         limpiarJ2();
+
+        Ventana.imp(myCasino.registrarJugador(nombre, cedula, telefono), "Sistema");
+        limpiarJ2();
     }//GEN-LAST:event_cmdRegistrarJ2ActionPerformed
 
     private void cmdPokerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPokerActionPerformed
@@ -334,9 +335,10 @@ public class DosJugadores extends javax.swing.JFrame {
         String nombre = txtNomJ1.getText();
         String cedula = txtCedJ1.getText();
         String telefono = txtTelJ1.getText();
-        
+
         Ventana.imp(myCasino.registrarJugador(nombre, cedula, telefono), "Sistema");
         limpiarJ1();
+        
     }//GEN-LAST:event_cmdRegistrarJ1ActionPerformed
 
     private void txtNomJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomJ2ActionPerformed
@@ -345,25 +347,24 @@ public class DosJugadores extends javax.swing.JFrame {
 
     private void cmdBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBlackActionPerformed
         // TODO add your handling code here:
-    JuegoCasa juegoCasa = new JuegoCasa(myPrincipal, myCasino);
-    BlackJack blackJack = new BlackJack(juegoCasa);
-    blackJack.setVisible(true);
+        JuegoCasa juegoCasa = new JuegoCasa(myPrincipal, myCasino);
+        BlackJack blackJack = new BlackJack(juegoCasa, myCasino);
+        blackJack.setVisible(true);
 
-    // Cerrar la ventana actual si lo deseas
-    this.dispose();
+        this.dispose();
     }//GEN-LAST:event_cmdBlackActionPerformed
 
-public void limpiarJ1(){
-    txtNomJ1.setText("");
-    txtCedJ1.setText("");
-    txtTelJ1.setText("");
-}
+    public void limpiarJ1() {
+        txtNomJ1.setText("");
+        txtCedJ1.setText("");
+        txtTelJ1.setText("");
+    }
 
-public void limpiarJ2(){
-    txtNomJ2.setText("");
-    txtCedJ2.setText("");
-    txtTelJ2.setText("");
-}
+    public void limpiarJ2() {
+        txtNomJ2.setText("");
+        txtCedJ2.setText("");
+        txtTelJ2.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdBlack;
     private javax.swing.JButton cmdPoker;

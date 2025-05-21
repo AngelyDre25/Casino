@@ -5,6 +5,7 @@
 package Negocio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -43,9 +44,16 @@ public class Baraja {
                 myCartas.add(carta);
             }
         }
+        Collections.shuffle(myCartas);
     }
     
     public ArrayList<Carta> getMyCartas() {
         return myCartas;
     }
+    
+    public Carta getCarta(){
+        Carta carta = this.myCartas.remove(0);
+        return carta;
+    }
+    
 }

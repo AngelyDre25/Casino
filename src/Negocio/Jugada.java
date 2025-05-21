@@ -12,16 +12,17 @@ import java.util.ArrayList;
  */
 public class Jugada {
     private Jugador myJugador;
+    private Empleado myEmpleado;
     private Carta myCartas[];
     private int puntaje;
-    private String nombre;
     private int valorApuesta;
 
-    public Jugada(Jugador myJugador, Carta[] myCartas, int puntaje, String nombre, int valorApuesta) {
+    public Jugada(Jugador myJugador, Carta[] myCartas, int valorApuesta) {
         this.myJugador = myJugador;
         this.myCartas = new Carta[5];
-        this.puntaje = puntaje;
-        this.nombre = nombre;
+        for(int i=0; i<2; i++){
+            this.myCartas[i] = myCartas[i];
+        }
         this.valorApuesta = valorApuesta;
     }
     

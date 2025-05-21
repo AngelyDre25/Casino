@@ -5,6 +5,7 @@
 package Presentacion;
 
 import Negocio.Baraja;
+import Negocio.Casino;
 import Negocio.Jugada;
 
 /**
@@ -13,11 +14,13 @@ import Negocio.Jugada;
  */
 public class BlackJack extends javax.swing.JFrame {
     private JuegoCasa myJuego;
+    private Casino myCasino;
     /**
      * Creates new form BlackJack
      */
-    public BlackJack(JuegoCasa m) {
+    public BlackJack(JuegoCasa m, Casino myCasino) {
         this.myJuego = m;
+        this.myCasino = myCasino;
         initComponents();
     }
 
@@ -82,7 +85,6 @@ public class BlackJack extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         cmdIniciar = new javax.swing.JButton();
-        cmdCrupier = new javax.swing.JRadioButton();
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("NOMBRE:");
@@ -302,15 +304,6 @@ public class BlackJack extends javax.swing.JFrame {
             }
         });
 
-        cmdCrupier.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        cmdCrupier.setForeground(new java.awt.Color(255, 255, 255));
-        cmdCrupier.setText("CRUPIER");
-        cmdCrupier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCrupierActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -367,10 +360,6 @@ public class BlackJack extends javax.swing.JFrame {
                                         .addComponent(cmdOtraJ2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cmdStopJ2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGap(72, 72, 72))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cmdCrupier)
-                .addGap(76, 76, 76))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(269, 269, 269)
                 .addComponent(jLabel1)
@@ -381,9 +370,7 @@ public class BlackJack extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmdCrupier)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -459,6 +446,7 @@ public class BlackJack extends javax.swing.JFrame {
 
     private void txtCedulaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaJ2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtCedulaJ2ActionPerformed
 
     private void cmdIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdIniciarActionPerformed
@@ -466,7 +454,7 @@ public class BlackJack extends javax.swing.JFrame {
         String cedula = txtCedulaJ1.getText();
         String apuesta = txtApuestaJ1.getText();
         String cedula2 = txtCedulaJ2.getText();
-        
+        this.myCasino.crearPartido();
         
         
     }//GEN-LAST:event_cmdIniciarActionPerformed
@@ -474,18 +462,6 @@ public class BlackJack extends javax.swing.JFrame {
     private void txtApuestaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApuestaJ2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApuestaJ2ActionPerformed
-
-    private void cmdCrupierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrupierActionPerformed
-        // TODO add your handling code here:
-        if(cmdCrupier.isSelected()){
-            lblApuesta2.setEnabled(false);
-            txtApuestaJ2.setEnabled(false);
-        }else {
-               lblApuesta2.setEnabled(true);
-               txtApuestaJ2.setEnabled(true);
-        }
-        
-    }//GEN-LAST:event_cmdCrupierActionPerformed
 
     private void txtCedulaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaJ1ActionPerformed
         // TODO add your handling code here:
@@ -496,7 +472,6 @@ public class BlackJack extends javax.swing.JFrame {
     }//GEN-LAST:event_txtApuestaJ1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton cmdCrupier;
     private javax.swing.JButton cmdIniciar;
     private javax.swing.JButton cmdOtraJ1;
     private javax.swing.JButton cmdOtraJ2;
