@@ -23,5 +23,5 @@ public class Partida {
         this.ganador = ganador;
         this.puntaje = puntaje;
         this.valorCancelado = valorCancelado;
-    }    
+    }
 }
